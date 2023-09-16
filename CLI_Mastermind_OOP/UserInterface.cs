@@ -32,6 +32,7 @@ namespace CLI_Mastermind_OOP
                 if (!success || codeLength < 1)
                 {
                     success = false;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input. Please enter a valid number.");
                 }
             }
@@ -51,7 +52,9 @@ namespace CLI_Mastermind_OOP
                 if (!success || guessCount < 1)
                 {
                     success = false;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input. Please enter a valid number.");
+                    Console.ResetColor();
                 }
             }
 
@@ -63,6 +66,14 @@ namespace CLI_Mastermind_OOP
             Console.WriteLine($"Enter your guess for the secret code on one line separated by spaces (length should be {codeLength}):");
             string[] input = Console.ReadLine().Split(' ');
 
+            if (input.Length != codeLength)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Invalid input. Please enter a guess with a length of {codeLength}.");
+                Console.ResetColor();
+                return null;
+            }
+
             int[] userGuess = new int[codeLength];
             bool validInput = true;
 
@@ -70,7 +81,9 @@ namespace CLI_Mastermind_OOP
             {
                 if (!int.TryParse(input[i], out userGuess[i]) || userGuess[i] < 1 || userGuess[i] > 8)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Invalid input at position {i + 1}. Please enter a number between 1 and 8.");
+                    Console.ResetColor();
                     validInput = false;
                     break;
                 }
@@ -98,7 +111,9 @@ namespace CLI_Mastermind_OOP
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input. Please enter 'Y' or 'N'.");
+                    Console.ResetColor();
                 }
             }
 

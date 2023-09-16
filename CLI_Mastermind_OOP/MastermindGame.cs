@@ -45,26 +45,27 @@ namespace CLI_Mastermind_OOP
 
         public bool TakeUserGuess(int[] guess)
         {
-            if (guess.Length != secretCode.Length)
-            {
-                Console.WriteLine($"Invalid input. Please enter a guess with a length of {secretCode.Length}.");
-                return false;
-            }
-
-            userGuess = guess;
+            userGuess = new int[guess.Length];
             bool[] redVisited = new bool[secretCode.Length];
             bool[] whiteVisited = new bool[secretCode.Length];
-            bool validCode = true;
             bool isCorrect = false;
+            bool validCode = true;
 
             for (int i = 0; i < guess.Length; i++)
             {
                 if (!int.TryParse(guess[i].ToString(), out userGuess[i]) || userGuess[i] < 1 || userGuess[i] > 8)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input. Please enter a number between 1 and 8.");
+                    Console.ResetColor();
                     validCode = false;
                     break;
                 }
+            }
+
+            if (!validCode)
+            {
+                return false;
             }
 
             if (validCode)
@@ -101,13 +102,16 @@ namespace CLI_Mastermind_OOP
 
                 if (redPegs == secretCode.Length)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("\nCongratulations! You guessed the secret code correctly.\n");
+                    Console.ResetColor();
                     RevealSecret();
                     return true;
                 }
                 else
                 {
                     guessCount--;
+                    //Console.ResetColor();
                     Console.WriteLine($"You got {redPegs} red peg(s) and {whitePegs} white peg(s)\n");
                     Console.WriteLine($"You have {guessCount} guess(es) remaining\n");
 
