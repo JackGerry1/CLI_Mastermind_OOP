@@ -42,15 +42,27 @@ namespace CLI_Mastermind_OOP
             return guessCount;
         }
 
-        public static int[] GetUserGuess(int codeLength)
+        public static int[]? GetUserGuess(int codeLength)
         {
             Console.WriteLine($"Enter your guess for the secret code on one line separated by spaces (length should be {codeLength}):");
             string[] input = Console.ReadLine().Split(' ');
 
-            int[] userGuess = Array.ConvertAll(input, int.Parse);
+            int[] userGuess = new int[codeLength];
+            bool validInput = true;
 
-            return userGuess.Length == codeLength ? userGuess : null;
+            for (int i = 0; i < codeLength; i++)
+            {
+                if (!int.TryParse(input[i], out userGuess[i]) || userGuess[i] < 1 || userGuess[i] > 8)
+                {
+                    Console.WriteLine($"Invalid input at position {i + 1}. Please enter a number between 1 and 8.");
+                    validInput = false;
+                    break;
+                }
+            }
+
+            return validInput ? userGuess : null;
         }
+
 
         public static bool PlayAgain()
         {
