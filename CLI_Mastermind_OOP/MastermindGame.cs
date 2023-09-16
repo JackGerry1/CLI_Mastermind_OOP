@@ -16,6 +16,14 @@ namespace CLI_Mastermind_OOP
             RevealSecret();
         }
 
+        internal Program MastermindGameImport
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private static int[] GenerateSecretCode(int codeLength)
         {
             Random random = new Random();
