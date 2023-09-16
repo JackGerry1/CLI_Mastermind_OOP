@@ -1,2 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CLI_Mastermind_OOP.MastermindGame">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <AssociationLine Name="MastermindGameImports" Type="CLI_Mastermind_OOP.Program">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.579" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEBAAAAAAAACAAACQAAAAACAACAEAA=</HashCode>
+      <FileName>MastermindGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MastermindGameImports" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CLI_Mastermind_OOP.Program">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLI_Mastermind_OOP.UserInterface">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABAAAAAAAAAIAIAAAAAAAAAAAAAAAAAAAEEA=</HashCode>
+      <FileName>UserInterface.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserInterfaceImports" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

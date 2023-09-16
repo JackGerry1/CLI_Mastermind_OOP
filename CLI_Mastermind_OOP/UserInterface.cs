@@ -12,6 +12,14 @@ namespace CLI_Mastermind_OOP
             }
         }
 
+        internal static Program UserInterfaceImports
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public static int GetCodeLength()
         {
             int codeLength = 0;
